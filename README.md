@@ -26,13 +26,13 @@ I was not familiar with how uploading files to a web page worked, and how Nginx 
    * https://stackoverflow.com/questions/44371643/nginx-php-failing-with-large-file-uploads-over-6-gb/44751210#44751210
    * https://github.com/ardinusawan/Nginx-direct-file-upload-without-passing-them-through-backend
 
-   I skipped them because I didn't know a backend App server is needed for handling file co ntents uploaded and I went on searching for "pure" Nginx upload.
+   I skipped them because I didn't know a backend App server is needed for handling file contents uploaded and I went on searching for "pure" Nginx upload.
 
-3. I found https://javascript.info/resume-upload. The codes run well with nodejs server alone. I tried including it with Nginx and failed because I didn't quite underlying how Nginx processed requests at that time.
+3. I found https://javascript.info/resume-upload. The codes run well with nodejs server alone. I tried including it with Nginx and failed because I didn't quite understand how Nginx processed requests at that time.
 
-4. I then came back to the 3 pages in point 2 above. Basically they are the same and they use Nginx builtin parameter "client_body_in_file_only " to save files to disk and use other means to extract file content from there ("client_body_in_file_only" does not work with multipart upload, so "other means" is needed). 
+4. I then came back to the 3 pages in point 2 above. Basically they are the same and they use Nginx builtin parameter "client_body_in_file_only " to save files to disk and use other means to extract file content from there ("client_body_in_file_only" does not work with multipart/form-data, so "other means" is needed).
 
-5. I finally tried point 3 again. I read some primer on Nginx processing, and came up with what I have now. It may not be good but works in my case.
+5. I finally tried point 3 again. I read some primer on Nginx processing, and came up with what I have now. It may not be efficient but works in my case.
 
 
 
